@@ -1,0 +1,24 @@
+.container {
+    background-image: url("https://marketplace.canva.com/EAE93oDu61A/1/0/1600w/canva-purple-blue-neon-gaming-desktop-backgrounds-PWYZmwkPtUg.jpg");
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+
+.container button{
+    margin-top: 700px;
+    margin-left: 900px;
+    font-size: xx-large;
+    padding: 20px;
+    color: rgb(221, 63, 208);
+    background-color: black;
+}
+
+.container button:hover{
+    background-color: antiquewhite;
+    cursor: pointer;
+}
+

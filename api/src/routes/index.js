@@ -7,8 +7,8 @@ const { Videogame, Genre } = require('../db')
 
 const getApi = async () => {
     const apiEnd1 = await axios('https://api.rawg.io/api/games?key=89a3b3967af54b76bc542c6aebfbb99b&page=1&page_size=40');
-    const apiEnd2 = await axios('https://api.rawg.io/api/games?key=89a3b3967af54b76bc542c6aebfbb99b&page=1&page_size=40');
-    const apiEnd3 = await axios('https://api.rawg.io/api/games?key=89a3b3967af54b76bc542c6aebfbb99b&page=1&page_size=20');
+    const apiEnd2 = await axios('https://api.rawg.io/api/games?key=89a3b3967af54b76bc542c6aebfbb99b&page=2&page_size=40');
+    const apiEnd3 = await axios('https://api.rawg.io/api/games?key=89a3b3967af54b76bc542c6aebfbb99b&page=5&page_size=20');
 
     apiGames = apiEnd1.data.results.concat(apiEnd2.data.results, apiEnd3.data.results,);
  
@@ -17,7 +17,7 @@ const getApi = async () => {
             id: e.id,
             name: e.name,
             image: e.background_image,
-            genres: e.genres.map(e => e.name),
+            genres: e.genres.map(e => {return {name : e.name}}),
             platforms: e.platforms.map(e => e.platform.name),
             rating: e.rating,
             released: e.released,
@@ -51,7 +51,7 @@ router.get('/videogames', async (req, res) => {
     const {name} = req.query
     let info = await getVideogames();
     if(name) {
-        let videogames = info.filter(e => e.name.toLowerCase().includes(name.toLowerCase())).slice(0,16)
+        let videogames = info.filter(e => e.name.toLowerCase().includes(name.toLowerCase())).slice(0,15)
         videogames.length > 0 ? 
         res.status(200).send(videogames) :
         res.status(404).send('Juego no Encontrado')
