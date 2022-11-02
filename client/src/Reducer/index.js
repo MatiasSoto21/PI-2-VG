@@ -1,10 +1,11 @@
-import { GET_VIDEOGAMES, SEARCH, FILTER_GENRE, GET_GENRES, FILTER_CREATE, GET_DETAIL, ORDER_RATING, ORDER_NAME, CLEAN } from "../Actions";
+import { GET_VIDEOGAMES, SEARCH, FILTER_GENRE, GET_GENRES, FILTER_CREATE, GET_DETAIL, ORDER_RATING, ORDER_NAME, CLEAN, GET_PLATFORMS } from "../Actions";
 
 const initialState = {
     videogames: [],
     allVg: [],
     genres: [],
-    detail: []
+    detail: [],
+    platforms: []
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -79,6 +80,11 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 detail: []
+            }
+        case GET_PLATFORMS:
+            return {
+                ...state,
+                platforms: action.payload
             }    
         default:
             return state;

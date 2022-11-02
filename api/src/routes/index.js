@@ -108,6 +108,14 @@ router.get('/genres', async (req, res) => {
     res.send(allGenres)
 })
 
+router.get('/platforms', async (req, res) => {
+    let info = await getVideogames();
+    let array = info.map(e => e.platforms).flat(Infinity)
+    let platforms = new Set(array)
+    let result = [...platforms]
+    res.send(result)
+})
+
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);

@@ -8,6 +8,17 @@ export const GET_DETAIL = 'GET_DETAIL';
 export const ORDER_RATING = 'ORDER_RATING';
 export const ORDER_NAME = 'ORDER_NAME';
 export const CLEAN = 'CLEAN';
+export const GET_PLATFORMS = 'GET_PLATFORMS';
+
+export const getPlatforms = () =>{
+    return async function (dispatch) {
+        return await axios("http://localhost:3001/platforms")
+        .then(res => dispatch({
+            type: GET_PLATFORMS,
+            payload: res.data
+        }))
+    }
+}
 
 export const getDetail = (id) => {
     return async function(dispatch){

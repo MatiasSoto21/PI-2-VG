@@ -37,7 +37,7 @@ const Home = () => {
 
   useEffect(() => {
     setPag(1)
-  },[Videogames])
+  },[Videogames, order])
 
   function handleClick (e) {
     dispatch(getVideogames());
