@@ -1,4 +1,4 @@
-import { GET_VIDEOGAMES, SEARCH, FILTER_GENRE, GET_GENRES, FILTER_CREATE, GET_DETAIL, ORDER_RATING, ORDER_NAME, CLEAN, GET_PLATFORMS } from "../Actions";
+import { GET_VIDEOGAMES, SEARCH, FILTER_GENRE, GET_GENRES, FILTER_CREATE, GET_DETAIL, ORDER_RATING, ORDER_NAME, CLEAN, GET_PLATFORMS, POST } from "../Actions";
 
 const initialState = {
     videogames: [],
@@ -86,6 +86,10 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 platforms: action.payload
             }    
+        case POST:
+            return {
+                ...state
+            }
         default:
             return state;
     }

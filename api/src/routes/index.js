@@ -62,7 +62,7 @@ router.get('/videogames', async (req, res) => {
 
 router.get('/videogame/:id', async (req, res) => {
     const {id} = req.params
-    if (id) {
+    if (id.length < 10) {
         const info = await axios(`https://api.rawg.io/api/games/${id}?key=89a3b3967af54b76bc542c6aebfbb99b`)
         const vg = {
             id: info.data.id,
@@ -76,13 +76,21 @@ router.get('/videogame/:id', async (req, res) => {
         }
         res.send(vg)
     }
+    if (id.length > 10) {
+        const detail = await getDb();
+        let videogame = detail.filter(e => e.id == id);
+        videogame.length > 0? 
+        res.status(200).json(videogame[0]) :
+        res.status(400).send('Id do not match')
+    }
 })
 
 router.post('/videogames', async (req, res) => {
-    const {name, description, released, rating, genres, createdInDb, platforms} = req.body
+    const {name, image, description, released, rating, genres, createdInDb, platforms} = req.body
     if(!name || !description || !released || !rating || !genres || !platforms) res.send('Completar campos')
     let newVg = await Videogame.create({
         name,
+        image,
         description,
         released,
         rating,

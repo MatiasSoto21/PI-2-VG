@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { getGenres, getPlatforms } from '../Actions';
+import { getGenres, getPlatforms, postGame } from '../Actions';
 
 const Post = () => {
   const dispatch = useDispatch();
@@ -37,8 +37,9 @@ const Post = () => {
   }
 
   function handleInput(e) {
-    setInput({ ...input, 
-      [e.target.name]: e.target.value 
+    setInput({
+      ...input,
+      [e.target.name]: e.target.value
     })
     setErrors(validate({
       ...input,
@@ -68,10 +69,25 @@ const Post = () => {
     })
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    dispatch(postGame(input));
+    alert('Videogame Create!');
+    setInput({
+      name: '',
+      image: '',
+      description: '',
+      released: '',
+      rating: '',
+      genres: [],
+      platforms: []
+    })
+  }
+
   return (
     <div>
       <h1>Create Your Game</h1>
-      <form>
+      <form onSubmit={e => handleSubmit(e)}>
         <div>
           <label>Name </label>
           <input type="text" name="name" value={input.name} onChange={e => handleInput(e)} />
@@ -104,12 +120,12 @@ const Post = () => {
             {allGenres?.map(e =>
               <option key={e.id} value={e.name} >{e.name}</option>)}
           </select>
-          {input.genres?.map((e, i) => 
-          <div key={i}>
-            <p>{e}</p>
-            <button type="reset" onClick={() => handleDeleteGenre(e)}>x</button>
-          </div>
-            )}
+          {input.genres?.map((e, i) =>
+            <div key={i}>
+              <p>{e}</p>
+              <button type="reset" onClick={() => handleDeleteGenre(e)}>x</button>
+            </div>
+          )}
           {errors.genres && <span>*{errors.genres}</span>}
         </div>
         <div>
@@ -118,14 +134,16 @@ const Post = () => {
             {allPlatforms?.map((e, i) =>
               <option key={i} value={e} >{e}</option>)}
           </select>
-          {input.platforms?.map((e, i) => 
-          <div key={i}>
-            <p>{e}</p>
-            <button type="reset" onClick={() => handleDeletePlat(e)}>x</button>
-          </div>
-            )}
+          {input.platforms?.map((e, i) =>
+            <div key={i}>
+              <p>{e}</p>
+              <button type="reset" onClick={() => handleDeletePlat(e)}>x</button>
+            </div>)}
           {errors.platforms && <span>*{errors.platforms}</span>}
         </div>
+        {!errors.name && !errors.description && !errors.rating && !errors.released && input.genres.length > 0 && input.platforms.length > 0 ?
+          <button type='submit'>Create</button> :
+          <p>*All Fields Must Be Completed Except Image</p>}
       </form>
     </div>
   )

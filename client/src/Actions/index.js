@@ -9,6 +9,13 @@ export const ORDER_RATING = 'ORDER_RATING';
 export const ORDER_NAME = 'ORDER_NAME';
 export const CLEAN = 'CLEAN';
 export const GET_PLATFORMS = 'GET_PLATFORMS';
+export const POST = 'POST';
+
+export const postGame =(payload) => {
+    return async function (dispatch){
+        return await axios.post("http://localhost:3001/videogames", payload)
+    }
+}
 
 export const getPlatforms = () =>{
     return async function (dispatch) {
