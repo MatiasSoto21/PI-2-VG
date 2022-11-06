@@ -11,10 +11,10 @@ const Order = ({ ordered }) => {
     }
 
   return (
-    <div> Order by 
-        <select onChange={e => handleChange(e)}>
-            <option value="a-z">A-Z</option>
-            <option value="z-a">Z-A</option>
+    <div> Order by Name
+        <select className="btn btn-primary dropdown-toggle ms-2" onChange={e => handleChange(e)}>
+            <option className="dropdown-item" value="a-z">A-Z</option>
+            <option className="dropdown-item" value="z-a">Z-A</option>
         </select>
     </div>
   )

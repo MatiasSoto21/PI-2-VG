@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { filterGenre, getGenres } from '../Actions'
 
+
 const Filtergenre = () => {
     const genres = useSelector(state => state.genres)
     const dispatch = useDispatch();
@@ -16,10 +17,10 @@ const Filtergenre = () => {
     }
   return (
     <div> Filter by Genre
-        <select onChange={e => handleChange(e)}>
-            <option value="ALL">All</option>
+        <select class="btn btn-primary dropdown-toggle ms-2" onChange={e => handleChange(e)}>
+            <option class="dropdown-item" value="ALL">All</option>
             {genres?.map(e => 
-            <option key={e.id} value={e.name}>{e.name}</option>)}
+            <option class="dropdown-item" key={e.id} value={e.name}>{e.name}</option>)}
         </select>
     </div>
   )

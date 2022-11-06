@@ -9,6 +9,7 @@ import Filtercreate from './Filtercreate'
 import Order from './Order'
 import OrderRating from './OrderRating'
 import Pag from './Pag';
+import styles from './module/Home.module.css'
 
 
 const Home = () => {
@@ -17,7 +18,7 @@ const Home = () => {
 
   const [order, setOrder] = useState('');
 
-  function ordered (e){
+  function ordered(e) {
     setOrder(e)
   }
 
@@ -37,48 +38,56 @@ const Home = () => {
 
   useEffect(() => {
     setPag(1)
-  },[Videogames, order])
+  }, [Videogames, order])
 
-  function handleClick (e) {
+  function handleClick(e) {
     dispatch(getVideogames());
   }
 
   return (
-    <div>
+    <div id={styles.container}>
       <h1>Hello Gamer!</h1>
-      <Link to="/post">
-        <button>Create Videogame</button>
-      </Link>
-      <button onClick={e => handleClick(e)}>Reload Page</button>
-      <div>
-        <Filtergenre></Filtergenre>
-        <Filtercreate></Filtercreate>
-      </div>
-      <div>
-        <Order ordered={ordered}></Order>
-        <OrderRating ordered={ordered}></OrderRating>
-      </div>
-      <div> asd
-        <Pag videogamesPerPage={videogamesPerPage} Videogames={Videogames.length} paginado={paginado} ></Pag>
-      </div>
-      <div>
-        <SearchBar></SearchBar>
-      </div>
-      <div>
-        {currentVg? currentVg.map((e, i) => 
-        <div key={i}>
-          <Link to={'/detail/' + e.id} >
-            <Card
-            id={e.id}
-            image={e.image}
-            name={e.name}
-            genres={e.genres}
-            />
-          </Link>
-        </div>
-        ): 
-        <h1>Error</h1>
-        }
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark text-primary">
+        <ul class="navbar-nav">
+          <li class="nav-item me-4 ms-4">
+            <Link to="/post">
+              <a class="nav-link" href="#a">Create Videogame</a>
+            </Link>
+          </li>
+          <li class="nav-item me-4">
+            <a class="nav-link" href="#b" onClick={e => handleClick(e)}>Reload Page</a>
+          </li>
+          <li class="nav-item dropdown me-4 ms-4">
+            <a class="nav-link" href="#c"><Filtergenre></Filtergenre></a>
+          </li>
+          <li class="nav-item dropdown me-4 ms-4">
+            <a class="nav-link" href="#d"><Filtercreate></Filtercreate></a>
+          </li>
+          <li class="nav-item dropdown me-4 ms-4">
+            <a class="nav-link" href="#e"><Order ordered={ordered}></Order></a>
+          </li>
+          <li class="nav-item dropdown me-4 ms-4">
+            <a class="nav-link" href="#f"><OrderRating ordered={ordered}></OrderRating></a>
+          </li>
+
+
+        </ul>
+      </nav>
+      <Pag videogamesPerPage={videogamesPerPage} Videogames={Videogames.length} paginado={paginado} ></Pag>
+      <SearchBar></SearchBar>
+      <div className='row m-3 p-5'>
+        {currentVg?.map((e, i) =>
+          <div className='col m-3 p-4' key={i}>
+            <Link className={styles.link} to={'/detail/' + e.id} >
+              <Card
+                id={e.id}
+                image={e.image}
+                name={e.name}
+                genres={e.genres}
+              />
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   )
