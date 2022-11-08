@@ -17,11 +17,11 @@ const SearchBar = () => {
 
 
     return (
-        <div>
-            <ul class="d-flex justify-content-center ">
+        <div className='d-flex justify-content-center mt-4'>
+            <ul className="d-flex">
 
-            <input class="form-control me-2" type="text" placeholder='Search...' onChange={e => handleInput(e)} />
-            <button class="btn btn-primary" type="submit" onClick={e => handleClick(e)}>Search</button>
+            <input className="form-control me-2" type="text" placeholder='Search...' onChange={e => handleInput(e)} />
+            <button className="btn btn-dark" type="submit" onClick={e => handleClick(e)}>Search</button>
             </ul>
         </div>
     )

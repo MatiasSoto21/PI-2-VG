@@ -9,7 +9,7 @@ const Pag = ({ videogamesPerPage, Videogames, paginado }) => {
     <div>
       <ul className="pagination justify-content-center mt-4">
         {pageNumber?.map((e,i) =>
-        <li className="page-item" onClick={() => paginado(e)} key={i} ><a class="page-link" href="#-">{e}</a></li>
+        <li className="page-item" onClick={() => paginado(e)} key={i} ><a className="page-link text-dark" href="#-">{e}</a></li>
         )}
         </ul>
     </div>

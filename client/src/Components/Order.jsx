@@ -12,7 +12,7 @@ const Order = ({ ordered }) => {
 
   return (
     <div> Order by Name
-        <select className="btn btn-primary dropdown-toggle ms-2" onChange={e => handleChange(e)}>
+        <select className="btn btn-secondary dropdown-toggle ms-2" onChange={e => handleChange(e)}>
             <option className="dropdown-item" value="a-z">A-Z</option>
             <option className="dropdown-item" value="z-a">Z-A</option>
         </select>

@@ -1,11 +1,37 @@
 .link {
     text-decoration: none;
-    color: gold;
+    color: aliceblue;
+    display: flex;
+    width: 510px;
+}
+
+.link:hover{
+    color: aliceblue;
 }
 
 #container {
-    background: #03001e;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #000046;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     
+    height: 290vh;
+
+}
+
+#nav{
+    z-index: 1;
+    position: fixed;
+    width: 100%
+}
+
+#hello{
+    padding-top: 100px;
+}
+
+#home{
+    text-decoration: none;
+}
+
+#lista:hover{
+text-emphasis-color: red;
 }

@@ -1,0 +1,48 @@
+#todo{
+    background: #56CCF2;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #2F80ED, #56CCF2);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #2F80ED, #56CCF2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+
+#desc{
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+
+#spin{
+    background: #56CCF2;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #2F80ED, #56CCF2);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #2F80ED, #56CCF2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 100vh;
+}
+
+#charge{
+    position: relative;
+    left: 700px;
+    top: 350px;
+    height: 100px;
+    width: 100px;
+}
+
+#loading{
+    position: relative;
+    left: 730px;
+    top: 350px;
+    height: 100px;
+    width: 100px;
+    font-size: 100px;
+}
+
+#foto{
+    box-shadow: 5px 5px 20px black;
+}
+
+#nav{
+    z-index: 1;
+    position: fixed;
+    width: 100%
+}
+

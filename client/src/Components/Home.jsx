@@ -46,39 +46,41 @@ const Home = () => {
 
   return (
     <div id={styles.container}>
-      <h1>Hello Gamer!</h1>
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark text-primary">
-        <ul class="navbar-nav">
-          <li class="nav-item me-4 ms-4">
-            <Link to="/post">
-              <a class="nav-link" href="#a">Create Videogame</a>
+      
+      <nav className="navbar navbar-expand-sm bg-dark navbar-dark text-primary" id={styles.nav}>
+        <ul className="navbar-nav">
+          <li className="nav-item me-4 ms-4" id={styles.lista} >
+            <Link id={styles.home} to="/post">
+              <a className="nav-link" href="#a">Create Videogame</a>
             </Link>
           </li>
-          <li class="nav-item me-4">
-            <a class="nav-link" href="#b" onClick={e => handleClick(e)}>Reload Page</a>
+          <li className="nav-item me-4">
+            <a className="nav-link" href="#b" onClick={e => handleClick(e)}>Reload Page</a>
           </li>
-          <li class="nav-item dropdown me-4 ms-4">
-            <a class="nav-link" href="#c"><Filtergenre></Filtergenre></a>
+          <li className="nav-item dropdown me-4 ms-4">
+            <a className="nav-link" href="#c"><Filtergenre></Filtergenre></a>
           </li>
-          <li class="nav-item dropdown me-4 ms-4">
-            <a class="nav-link" href="#d"><Filtercreate></Filtercreate></a>
+          <li className="nav-item dropdown me-4 ms-4">
+            <a className="nav-link" href="#d"><Filtercreate></Filtercreate></a>
           </li>
-          <li class="nav-item dropdown me-4 ms-4">
-            <a class="nav-link" href="#e"><Order ordered={ordered}></Order></a>
+          <li className="nav-item dropdown me-4 ms-4">
+            <a className="nav-link" href="#e"><Order ordered={ordered}></Order></a>
           </li>
-          <li class="nav-item dropdown me-4 ms-4">
-            <a class="nav-link" href="#f"><OrderRating ordered={ordered}></OrderRating></a>
+          <li className="nav-item dropdown me-4 ms-4">
+            <a className="nav-link" href="#f"><OrderRating ordered={ordered}></OrderRating></a>
           </li>
 
 
         </ul>
       </nav>
+      <h1 className='ps-5' id={styles.hello}>Videogames App 🎮</h1>
+
       <Pag videogamesPerPage={videogamesPerPage} Videogames={Videogames.length} paginado={paginado} ></Pag>
       <SearchBar></SearchBar>
-      <div className='row m-3 p-5'>
+      <div className='row m-3 p-4'>
         {currentVg?.map((e, i) =>
           <div className='col m-3 p-4' key={i}>
-            <Link className={styles.link} to={'/detail/' + e.id} >
+            <Link className={styles.link} to={'/detail/' + e.id}>
               <Card
                 id={e.id}
                 image={e.image}
@@ -89,6 +91,7 @@ const Home = () => {
           </div>
         )}
       </div>
+      <Pag videogamesPerPage={videogamesPerPage} Videogames={Videogames.length} paginado={paginado} ></Pag>
     </div>
   )
 }

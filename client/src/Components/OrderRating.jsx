@@ -12,7 +12,7 @@ const OrderRating = ({ ordered }) => {
 
   return (
     <div> Order by Rating
-        <select className="btn btn-primary dropdown-toggle ms-2" onChange={e => handleChange(e)}>
+        <select className="btn btn-secondary dropdown-toggle ms-2" onChange={e => handleChange(e)}>
             <option className="dropdown-item" value="mas">➕</option>
             <option className="dropdown-item" value="menos">➖</option>
         </select>

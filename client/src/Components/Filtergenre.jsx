@@ -17,10 +17,10 @@ const Filtergenre = () => {
     }
   return (
     <div> Filter by Genre
-        <select class="btn btn-primary dropdown-toggle ms-2" onChange={e => handleChange(e)}>
-            <option class="dropdown-item" value="ALL">All</option>
+        <select className="btn btn-secondary dropdown-toggle ms-2" onChange={e => handleChange(e)}>
+            <option className="dropdown-item" value="ALL">All</option>
             {genres?.map(e => 
-            <option class="dropdown-item" key={e.id} value={e.name}>{e.name}</option>)}
+            <option className="dropdown-item" key={e.id} value={e.name}>{e.name}</option>)}
         </select>
     </div>
   )
