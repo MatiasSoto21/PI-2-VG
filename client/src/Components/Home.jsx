@@ -75,7 +75,7 @@ const Home = () => {
       </nav>
       <h1 className='ps-5' id={styles.hello}>Videogames App 🎮</h1>
 
-      <Pag videogamesPerPage={videogamesPerPage} Videogames={Videogames.length} paginado={paginado} ></Pag>
+      <Pag videogamesPerPage={videogamesPerPage} Videogames={Videogames.length} paginado={paginado} pag={pag}></Pag>
       <SearchBar></SearchBar>
       <div className='row m-3 p-4'>
         {currentVg?.map((e, i) =>
