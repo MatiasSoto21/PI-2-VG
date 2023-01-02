@@ -1,6 +1,3 @@
-<p align='left'>
-    <img src='https://github.com/mariachi9999/Videogames-App/raw/main/videogame.png' </img>
-</p>
 
 # Individual Project - Henry Videogames
 
